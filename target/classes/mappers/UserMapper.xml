@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hxh.blog.mapper.UserMapper">
+
+    <!-- 插入用户 -->
+    <insert id="insertUser" parameterType="com.hxh.blog.pojo.User">
+        INSERT INTO user (id, username, password)
+        VALUE (#{id}, #{username}, #{password})
+    </insert>
+
+    <!-- 通过username查询用户 -->
+    <select id="queryUserByUsername" resultType="com.hxh.blog.pojo.User">
+        SELECT * FROM user
+        WHERE username = #{username}
+    </select>
+
+    <!-- 获取所有用户信息 -->
+    <select id="getAllUserData" resultType="com.hxh.blog.pojo.User">
+        SELECT * FROM user
+    </select>
+
+</mapper>
